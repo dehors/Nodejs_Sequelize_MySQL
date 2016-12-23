@@ -1,4 +1,4 @@
-## NodeJS Sequelize MySQL - SLAM24
+## NodeJS Sequelize MySQL
 
 ### Run
 
@@ -16,3 +16,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 1. `npm install`
 
 2. `node server`
+
+#### Refactory by SLAM24
+[Original post](http://www.pabloanaya.com/blog/building-api-node-js-express-4-mysql/)
