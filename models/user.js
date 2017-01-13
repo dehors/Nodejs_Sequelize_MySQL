@@ -27,7 +27,6 @@ var User = sequelize.define('users', {
       .save().success(onSuccess).error(onError);
     },
     updateById: function(user_id, onSuccess, onError) {
-      var id = user_id;
       var username = this.username;
       var password = this.password;
       
@@ -35,11 +34,11 @@ var User = sequelize.define('users', {
       shasum.update(password);
       password = shasum.digest('hex');
       
-      User.update({ username: username,password: password},{where: {id: id} })
+      User.update({ username: username,password: password},{id: user_id} )
       .success(onSuccess).error(onError);
     },
     removeById: function(user_id, onSuccess, onError) {
-      User.destroy({where: {id: user_id}}).success(onSuccess).error(onError); 
+      User.destroy({id: user_id}).success(onSuccess).error(onError); 
     }
   }
 });
