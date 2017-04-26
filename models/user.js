@@ -4,8 +4,13 @@ var crypto = require('crypto');
 
 var User = sequelize.define('users', {
   username: DataTypes.STRING,
-  password: DataTypes.STRING
-}, {
+  password: {
+    type: DataTypes.STRING,
+    field: 'contraseña'
+  },
+}, 
+{
+  timestamps: true,
   instanceMethods: {
     retrieveAll: function(onSuccess, onError) {
       User.findAll({}, {raw: true})
@@ -42,5 +47,7 @@ var User = sequelize.define('users', {
     }
   }
 });
+
+User.sync();
 
 module.exports.User = User;
